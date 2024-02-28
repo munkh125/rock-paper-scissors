@@ -6,12 +6,7 @@ function getComputerChoice(){
 
 function getPlayerChoice(){
     let choice = prompt('Enter Rock, Paper, Scissor');
-    let choices = ['Rock', 'Paper', 'Scissor'];
-    if(choice != choices){
-        return "Wrong input";
-    }else{
         return choice;
-    }
 }
 
 function playRound(playerSelection, computerSelection){
