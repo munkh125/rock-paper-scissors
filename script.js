@@ -13,20 +13,27 @@ function playRound(playerSelection, computerSelection){
     let playerChoice = playerSelection.toLowerCase();
     let computerChoice = computerSelection.toLowerCase();
     if(playerChoice == computerChoice){
-        return "It's a tie !";
+        return 0;
     }else if(playerChoice == 'rock' && computerChoice == 'scissor'){
-        return "You won !"
+        return 1
     }else if(playerChoice == 'scissor' && computerChoice == 'paper'){
-        return "You won !"
+        return 1
     }else if(playerChoice == 'paper' && computerChoice == 'rock'){
-        return "You won !"
+        return 1
     }else{
-        return "You lost !"
+        return 0
     }
 }
 
 const playerSelection = getPlayerChoice();
 const computerSelection = getComputerChoice();
+let score = 0;
 
-console.log(`Player choice: ${playerSelection} \nComputer choice: ${computerSelection}`);
-console.log(playRound(playerSelection, computerSelection));
+function playGame(){ 
+    score += playRound(playerSelection, computerSelection);
+    console.log(`Player choice: ${playerSelection} \nComputer choice: ${computerSelection}`);
+    console.log(`User has : ${score} score`);
+}
+
+playGame();
+playGame();
