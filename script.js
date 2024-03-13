@@ -21,22 +21,39 @@ function playRound(playerSelection, computerSelection){
     }else if(playerChoice == 'paper' && computerChoice == 'rock'){
         return 1
     }else{
-        return 0
+        return 2
     }
 }
 
 const playerSelection = getPlayerChoice();
 const computerSelection = getComputerChoice();
-let score = 0;
-
+let scorePlayer = 0;
+let scoreComputer = 0;
+function showScore(){
+    console.log(`Player has ${scorePlayer}\nComputer has ${scoreComputer}`);
+}
 function playGame(){ 
     for(let i = 0 ; i < 5; i++){
         console.log("Game started")
         const computerSelection = getComputerChoice();
         let playerSelection = getPlayerChoice();
-        score += playRound(playerSelection, computerSelection);
         console.log(`Player choice: ${playerSelection} \nComputer choice: ${computerSelection}`);
-        console.log(`User has : ${score} score`);
+        if(playRound(playerSelection, computerSelection) == 1){
+            scorePlayer += 1;
+        }else if(playRound(playerSelection, computerSelection) == 2){
+            scoreComputer += 1;
+        }else{
+            console.log("it's a tie");
+        };
+        
+        showScore();
+    }
+    if(scorePlayer > scoreComputer){
+        console.log("You won");
+    }else if(scorePlayer < scoreComputer){
+        console.log("Computer won");
+    }else{
+        console.log("It's a tie");
     }
 }
 
