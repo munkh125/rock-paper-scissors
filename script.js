@@ -6,7 +6,7 @@ function getComputerChoice(){
 
 function getPlayerChoice(){
     let choice = prompt('Enter Rock, Paper, Scissor');
-        return choice;
+    return choice;
 }
 
 function playRound(playerSelection, computerSelection){
@@ -30,10 +30,14 @@ const computerSelection = getComputerChoice();
 let score = 0;
 
 function playGame(){ 
-    score += playRound(playerSelection, computerSelection);
-    console.log(`Player choice: ${playerSelection} \nComputer choice: ${computerSelection}`);
-    console.log(`User has : ${score} score`);
+    for(let i = 0 ; i < 5; i++){
+        console.log("Game started")
+        const computerSelection = getComputerChoice();
+        let playerSelection = getPlayerChoice();
+        score += playRound(playerSelection, computerSelection);
+        console.log(`Player choice: ${playerSelection} \nComputer choice: ${computerSelection}`);
+        console.log(`User has : ${score} score`);
+    }
 }
 
-playGame();
 playGame();
